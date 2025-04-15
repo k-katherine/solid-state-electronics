@@ -1,0 +1,160 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools, misccorr, indentfirst, multirow}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{adjustbox}
+\usepackage{pgfplots}
+
+\usepackage{siunitx}
+\usepackage{circuitikz}
+\usepackage{geometry}
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+\newcommand{\angstrom}{\textup{\AA}}
+\begin{document}
+\begin{titlepage}
+    \newpage
+    \begin{center}
+     Министерство науки и высшего образования Российской федерации \\ ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ \\ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ \\ «МОСКОВСКИЙ ФИЗИКО-ТЕХНИЧЕСКИЙ ИНСТИТУТ \\ (НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ)» \\ (МФТИ, Физтех)
+    \end{center}
+    
+    \vspace{15em}
+    
+    \begin{center}
+    КАФЕДРА ТВЕРДОТЕЛЬНОЙ ЭЛЕКТРОНИКИ \\
+    \vspace{1em}
+    ОТЧЕТ\\
+    ПО ЛАБОРАТОРНОЙ РАБОТЕ \\
+    \vspace{1em}
+    ОПРЕДЕЛЕНИЕ ШИРИНЫ ЗАПРЕЩЕННОЙ ЗОНЫ ПОЛУПРОВОДНИКОВ ПО СПЕКТРАЛЬНОЙ ЗАВИСИМОСТИ СОБСТВЕННОЙ ФОТОПРОВОДИМОСТИ
+    \end{center}
+
+    \vspace{10em}
+    \begin{flushleft}
+        Работу выполнили \hspace{17em} \underline{\hspace{3cm}}
+        И.Д. Бессонов \\
+         \hspace{26em} \underline{\hspace{3cm}} Е.С. Иванова \\
+          \hspace{26em} \underline{\hspace{2.6cm}} Е.О. Коробкина\\
+          \hspace{26em} \underline{\hspace{3cm}} А.А. Макоткин\\
+        \hspace{26em}
+        \raisebox{-\baselineskip}{\shortstack{\underline{\hspace{3cm}}\\(подпись, дата)}}     
+        И.С. Потапова
+    \end{flushleft}
+
+    \vspace{1em}
+
+    \begin{flushleft}
+        Работу принял, оценка
+        \hspace{15em}
+        \raisebox{-\baselineskip}{\shortstack{\underline{\hspace{5cm}}\\(подпись, дата, оценка)}}
+    \end{flushleft}
+
+    \vspace{5em}
+    
+    \begin{center}
+        Долгопрудный, 2025
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Аннотация}
+\textbf{Цель работы:} 
+
+    
+   
+
+\section{Теоретическая часть}
+
+
+
+\section{Экспериментальная часть}
+
+
+\section{Выводы}
+
+\section{Ответы на вопросы}
+\begin{enumerate}
+    \item Дайте определение скорость поверхностной рекомбинации
+    \item Оцените диффузионную длину $L$, считая, что объемное время жизни в образце $Si$ составляет
+ $\tau\approx 10^{-4}$ с. Проверьте, выполняется ли условие $KL>>1$ и $Kd>>1$ (толщина образца в направлении  освещения 0,55мм).\par
+ Этот вопрос был в прошлой лабораторной работе, он решён.
+    \item Поясните понятие «амбиполярная диффузия». Выведите формулу для коэффициента амбиполярной диффузии D.\par
+    Амбиполярная диффузия - совместное перемещение электронов и дырок вглубь образца под действием градиента концентраций. Электроны диффундируют быстрее, опережают дырки, и в образце возникает электрическое поле, которое тормозит электроны и ускоряет дырки. В результате электроны и дырки двигаются вместе с общим коэффициентом диффузии, который называется коэффициент амбиполярной диффузии.\par
+    Вывод формулы: Для простоты ограничимся одномерным случаем и будем считать, что градиент концентрации и внешнее электрическое поле направлены вдоль оси х. Тогда уравнения непрерывности и уравнение для плотности токов должны быть записаны как для электронов, так и для дырок:
+    \[
+    \frac{\partial\Delta n}{\partial t}= \frac{1}{e}\frac{\partial j_n}{\partial x} - \frac{\Delta n}{\tau}
+    \]
+    \[
+    \frac{\partial\Delta p}{\partial t}= \frac{1}{e}\frac{\partial j_p}{\partial x} - \frac{\Delta p}{\tau}
+    \]
+    \[
+    j_n = en\mu_n E + eD_n\frac{d(\Delta n)}{dx}
+    \]
+      \[
+    j_p = ep\mu_p E + eD_p\frac{d(\Delta p)}{dx}
+    \]
+    \par
+    Для того чтобы определить $\mu_E$ и $D$, запишем уравнения непрерывности, подставив в них значения $j_n$ и $j_p$:
+    \[
+    \frac{\partial\Delta n}{\partial t}= D_n\frac{1}{e}\frac{\partial j_n}{\partial x} - \frac{\Delta n}{\tau}
+    \]
+    \[
+    \frac{\partial\Delta p}{\partial t}=- \frac{1}{e}\frac{\partial j_p}{\partial x} - \frac{\Delta p}{\tau}
+    \]
+    Умножив полученные уравнения соответственно на $\sigma_p = ep\mu_p$ и $\sigma_n = en\mu_n$, сложим оба уравнения. В результате, учитывая что $\Deltan =\Delta p$и используя соотношение Эйнштейна, получаем:
+    \[
+    \frac{\partial\Delta n}{\partial t}= \frac{D_n \sigma_p +D_p \sigma_n}{\sigma_p + \sigma_n} \frac{\partial^2(\Delta n)}{\partial x^2} +\frac{\mu_n \sigma_p - \mu_p \sigma_n}{\sigma_p +\sigma_n}E\frac{\partial(\Delta n)}{\partial t} - \frac{\Delta n}{\tau}    \]
+    Для стационарного случая, когда $\frac{\partial\Delta n}{\partial t} = 0$, уравнение можно записать в следующем виде:
+    \begin{equation}
+        \frac{D_n \sigma_p +D_p \sigma_n}{\sigma_p + \sigma_n} \frac{\partial^2(\Delta n)}{\partial x^2} +\frac{\mu_n \sigma_p - \mu_p \sigma_n}{\sigma_p +\sigma_n}E\frac{\partial(\Delta n)}{\partial t} - \frac{\Delta n}{\tau} = 0
+    \end{equation}
+    Учитывая, что при $n \approx n_0$ и $p \approx p_0$,  аэто справедливо когда $\Delta n <<n_0 $ и $\Delta p << p_0 $ и используя соотношение Эйнштейна для электронов и дырок $\frac{\mu_n}{D_n} = \frac{\mu_p}{D_p} = \frac{e}{kT}$, коэффициент амбиполярной диффузии можно записать в виде:
+    \begin{equation}
+        D = \frac{D_n \sigma_p + D_p \sigma_n}{\sigma_p + \sigma_n} = \frac{n_0+p_0}{\frac{n_0}{D_p}+ \frac{p_o}{D_n}} = \frac{kT}{e}\frac{n_0+p_0}{\frac{n_0}{\mu_p}+\frac{p_0}{\mu_n}}
+    \end{equation}
+    а амбиполярную дрейфовую подвижность в виде:
+    \begin{equation}
+        \mu_E = \frac{\mu_n \sigma_p - \mu_p \sigma_n}{\sigma_p +\sigma_n} = \frac{p_0-n_0}{\frac{n_0}{\mu_p} + \frac{p_0}{\mu_n}}     
+    \end{equation}
+    Если воспользоваться соотношением Эйнштейна, коэффициент амбиполярной диффузии $D $ можно представить в виде:
+    \[
+    D = \frac{kT}{e} \mu_D
+    \]
+    \item По значениям подвижности  $\mu$ (см. Приложение) определите коэффициент амбиполярной диффузии в собственном кремнии.\par
+    \[kT = [T=300K] = 25.9 [\text{мэВ}]\]
+    Как обсуждалось выше, формула для коэффициента амбиполярной диффузии записывается как:
+    \[
+    D = \frac{kT}{e} \mu_D
+    \]
+    Подвижности электронов и дырок в кремнии равны: 1500 и 600 $\text{см}^2/(\text{В} \cdot \text{с})$. Так как полупроводник собственный, то амбиполярная подвижность из формул равна:
+    \[
+    \mu_D = 2\frac{\mu_n \mu_p}{\mu_n + \mu_p} = 857  [\text{см}^2/(\text{В}\cdot \text{с)}]
+    \]
+    Тогда коэффициент $D$:
+    \[
+    D = \frac{kT}{e} \mu_D = \frac{25.9 \cdot 10^{-3} \cdot 1.6 \cdot 10^{-19}}{1.6\cdot10^{-19}} 857 = 22.1 [\text{см}^2/c]
+    \]
+    
+\end{enumerate}
+
+
+\section{Список литературы}
+\begin{itemize}
+    \item Определение ширины запренщенной зоны полупроводников по спектральной зависимости фотопроводимости: лабораторная работа №3., О.И. Смирнова. -- Москва: МФТИ, 2021. -- 16 с.
+    \item \textbf{Физика полупроводников.,} К.В.Шалимова, М.: Энергоатомиздат, 1985. -- 392 с.
+\end{itemize}
+
+
+
+
+\end{document}
+
